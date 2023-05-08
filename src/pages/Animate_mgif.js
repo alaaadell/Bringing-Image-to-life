@@ -10,6 +10,8 @@ function Animate_mgif() {
   const [show, setShow]=useState(false);
   const[showBox,setShowBox]=useState(true);
   const [resultVideo, setResultVideo] = useState("");
+  const[ index,setIndex]=useState(0);
+
   let link = "";
   function onClickAnimategif(){
     console.log("here")
@@ -34,7 +36,7 @@ function Animate_mgif() {
       link = "http://c...content-available-to-author-only...k.io/post"
     }
     else{
-      link = "http://f...content-available-to-author-only...k.io/post"
+      link = "http://74d1-35-229-128-126.ngrok.io/post"
     }
     fetch(link, {
   method: "POST",
@@ -132,30 +134,47 @@ function Animate_mgif() {
         <div className="drv-vid">
           <h1>Please choose the driving video:</h1>
           <input
-            className="videoFile"
-            type="file"
-            name="file2"
-            onChange={(e) => {
-              if (e.target.files && e.target.files.length > 0) {
-                setFiles2(e.target.files);
-              }
-            }}
-          />
+  className="videoFile"
+  type="file"
+  name="file2"
+  accept=".mp4,.gif"  // Add .gif here
+  onChange={(e) => {
+    if (e.target.files && e.target.files.length > 0) {
+      setFiles2(e.target.files);
+      setIndex( e.target.files[0].name.split('.').pop());
+      console.log(index)
+    }
+  }}
+/>
 
-          {previews2 &&
-            previews2.map((pic1) => {
-              return (
-                <img
-                  style={{
-                    width: 100,
-                    height: 100,
-                    
-                  }}
-                  src={pic1}
-                  alt="preview"
-                />
-              );
-            })}
+           {previews2 &&
+  previews2.map((pic1) => {
+    if (index === "gif") {
+      return (
+        <img
+          style={{
+            width: 100,
+            height: 100,
+          }}
+          src={pic1} 
+          alt="preview"
+        />
+      );
+    } else {
+      return (
+        <video
+          style={{
+            width: 100,
+            height: 100,
+          }}
+          src={pic1}
+          autoPlay
+          loop
+          muted
+        />
+      );
+    }
+  })}
         </div>
         <fieldset className="RadiosButton">
                 <legend>Choose The Model.</legend>
