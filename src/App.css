@@ -1,0 +1,133 @@
+
+.App-header{
+
+  min-height: 100vh;
+  min-width: 90vw;
+  background-color:  #f8f9fa;
+  display: flex;
+}
+.section{
+  width: 90%;
+  height: 80%;
+  background-color: rgb(227, 218, 218);
+  border-radius: 15px;
+  position: relative;
+   margin-left: 5%;
+   margin-top:3%;
+   padding: 3%;
+   
+ 
+}
+.content{
+    font-size:xx-large;
+    font-family:Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+    color: black;
+    text-align: left;
+    padding:1.5%;
+    
+   
+    
+}
+.ProjectName{
+  text-align: center;
+}
+.Members{
+  text-align: center;
+}
+.Team-Members{
+ 
+  font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+   position: relative;
+    left: 4%;
+    text-align: center;
+    font-weight: bold;
+    font-size:larger;
+    text-align: left;
+    padding-bottom: 3%;
+}
+.Team{
+  position: relative;
+  top: 55%;
+ 
+  left: 2%;
+}
+
+.robot-icon{
+ position: absolute;
+  top:55%;
+  width: 20%;
+  height: 30%;
+  left: 75%;
+
+}
+.college-icon{
+  width: 6%;
+  height: 6%;
+ 
+  
+}
+
+.feedback
+{
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size:large;
+  font-style: italic;
+  font-family:georgia,garamond,serif;
+}
+.title{
+  display: flex;
+  width:100% ;
+  justify-content: center;
+  align-items: center;
+}
+
+
+@media screen and (max-width: 1280px) {
+  .section{
+    width: 90%;
+    height: 80%;
+    background-color: rgb(227, 218, 218);
+    border-radius: 15px;
+     margin-top:5%;
+     margin-bottom:5%;
+  }
+
+  .robot-icon{
+    position: relative;
+     width: 20%;
+     height: 30%;
+     left: 73%;
+   
+   }
+   .Members{
+    text-align: center;
+    position: relative;
+  }
+  .Team-Members{
+   
+    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+    position: relative;
+     left: 10%;
+     text-align: center;
+     font-weight: bold;
+     margin-bottom: 50%;
+     font-size:larger;
+     text-align: left;
+  }
+  .Team{
+    
+    
+  position: relative;
+  top: 55%;
+  margin-bottom: 2%;
+  left: 2%;
+   
+  }
+ 
+
+
+  
+}

@@ -1,0 +1,60 @@
+input[type="file"]::file-selector-button{
+    margin: 0 1rem 0 0;
+}
+
+.page-animate{
+    display: flex;
+    align-items: start;
+    justify-content: space-between;
+    gap: 1rem;
+    height: 100%;
+    padding: 2rem 1rem;
+}
+
+.lhs{
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+}
+
+.src-img, .drv-vid{
+    border: 2px solid #e6e6e6;
+    padding: 0.5rem 1rem;
+    border-radius: 5px;
+}
+
+
+.result{
+    height: 80%;
+    width: 50%;
+    margin-right: 2%;
+    padding: 0.5rem 1rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1rem;
+}
+
+.animate{
+    width: 50%;
+   margin-left: 20%;
+}
+
+.RadiosButton{
+    border-radius:15px;
+    width:100%;
+    height: fit-content;
+    padding: 2%;;
+    
+  }
+@media screen and (max-width: 950px) {
+    .page-animate {
+        flex-direction: column;
+        padding: 2rem 1rem;
+        align-items: center;
+    }
+
+    .lhs{
+        width: 100%;
+    }
+}
