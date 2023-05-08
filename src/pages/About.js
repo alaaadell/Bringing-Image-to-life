@@ -13,10 +13,10 @@ export default function About() {
             <p>
               Our gradution project  for year 2023 is to animate a static image using motion in
               a video. Our goal in this project is to save time, but how can it
-              save time ? Long time ago, when the animator wanted to make an
+              save time? Long time ago, when the animator wanted to make an
               animation, he had to draw all the frames he wanted to display, but
               now they have to draw one frame and give it to the model with a
-              video similar motion , and the model will make a video with the
+              video similar motion, and the model will make a video with the
               same motion, but using this frame that inputed to model, and this
               saves the time.
               
@@ -25,11 +25,11 @@ export default function About() {
           <div>
             <h2 className="Team">Team Members</h2>
             <ul className="Team-Members">
-              <li>Mohamed Hassan </li>
+              <li>Alaa Adel</li>
               <li>Alaa Amr</li>
               <li>Alaa Mostafa</li>
               <li>Asmaa Ashraf</li>
-              <li> Alaa Adel</li>
+              <li>Mohamed Hassan </li>
             </ul>
            
           </div>

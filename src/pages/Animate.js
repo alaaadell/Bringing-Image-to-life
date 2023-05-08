@@ -1,6 +1,5 @@
 import React from "react";
 import { useEffect, useState } from "react";
-import ReactPlayer from "react-player";
 
 function Animate() {
   const [files, setFiles] = useState();
@@ -8,7 +7,52 @@ function Animate() {
   const [previews, setPreviews] = useState();
   const [previews2, setPreviews2] = useState();
   const [show, setShow]=useState(false);
-  const[showBox,setShowBox]=useState(true);
+  const [resultVideo, setResultVideo] = useState("");
+  let link = "";
+  function onClickAnimate(){
+    console.log("here")
+    setShow(false);
+    // Using Fetch API
+    const formData = new FormData();
+    formData.append("Image", files[0]);
+    formData.append("Video", files2[0]);
+    formData.append("Dataset","fashion")
+    // Get the selected radio button value
+    const radioButtons = document.getElementsByName("group1");
+    let selectedValue = null;
+    for (let i = 0; i < radioButtons.length; i++) {
+      if (radioButtons[i].checked) {
+        selectedValue = radioButtons[i].value;
+        break;
+      }
+    }
+    // Append the selected value to the formData object
+    formData.append("Model", selectedValue);
+    if(selectedValue == "First"){
+      link = "http://c...content-available-to-author-only...k.io/post"
+    }
+    else{
+      link = "http://f...content-available-to-author-only...k.io/post"
+    }
+    fetch(link, {
+  method: "POST",
+  body: formData,
+})
+  .then((response) => {
+    console.log(response);
+    return response.blob();
+  })
+  .then((blob) => {
+    const url = URL.createObjectURL(blob);
+    setResultVideo(url);
+    setShow(true);
+  })
+  .catch((err) => {
+    console.log(err.message);
+  });
+
+
+  }
   // rendering previews
   useEffect(() => {
     if (!files) return;
@@ -64,6 +108,7 @@ function Animate() {
             onChange={(e) => {
               if (e.target.files && e.target.files.length > 0) {
                 setFiles(e.target.files);
+                console.log(e.target.files);
               }
             }}
           />
@@ -113,24 +158,24 @@ function Animate() {
         </div>
         <fieldset className="RadiosButton">
                 <legend>Choose The Model.</legend>
-               <input type="radio" value="value1" name="group1"></input>First method.
+               <input type="radio" value="Thin" name="group1"></input>First method.
                <br></br>
                <br></br>
-               <input type="radio" value="value2" name="group1"></input>Second method.
+               <input type="radio" value="First" name="group1"></input>Second method.
                <br></br>
                <br></br>
-               <input type="radio" value="value3" name="group1"></input>Third method.
+               <input type="radio" value="Latent" name="group1"></input>Third method.
 
                </fieldset>
         <div>
-          <button className="animate" onClick={()=>setShow(true)}>Animate</button>  
+          <button className="animate" onClick={()=>onClickAnimate()}>Animate</button>  
         </div>
       </div>
 
       <div className="result">
         <div className="video-container">
           {
-           show?<video width={350} src="fashion.mp4" autoPlay loop muted  />:null
+           show?<video width={350} src={resultVideo} autoPlay loop muted  />:null
           }
         </div>
       </div>
