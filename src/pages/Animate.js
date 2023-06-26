@@ -8,13 +8,16 @@ function Animate() {
   const [previews2, setPreviews2] = useState();
   const [show, setShow]=useState(false);
   const [resultVideo, setResultVideo] = useState("");
-  const[ index,setIndex]=useState(0);
+  const[index,setIndex]=useState(0);
+  const[loading,setLoading]=useState(false);
+  
 
   let link = "";
   function onClickAnimate(){
     console.log("here")
     setShow(false);
     // Using Fetch API
+    setLoading(true);
     const formData = new FormData();
     formData.append("Image", files[0]);
     formData.append("Video", files2[0]);
@@ -31,10 +34,10 @@ function Animate() {
     // Append the selected value to the formData object
     formData.append("Model", selectedValue);
     if(selectedValue == "First"){
-      link = "http://c...content-available-to-author-only...k.io/post"
+      link = "https://3d23-35-233-182-59.ngrok-free.app/post"
     }
     else{
-      link = "http://74d1-35-229-128-126.ngrok.io/post"
+      link = "https://9087-34-126-74-2.ngrok-free.app/post"
     }
     fetch(link, {
   method: "POST",
@@ -47,9 +50,11 @@ function Animate() {
   .then((blob) => {
     const url = URL.createObjectURL(blob);
     setResultVideo(url);
+    setLoading(false);
     setShow(true);
   })
   .catch((err) => {
+    setLoading(false);
     console.log(err.message);
   });
 
@@ -192,7 +197,10 @@ function Animate() {
       <div className="result">
         <div className="video-container">
           {
-           show?<video width={350} src={resultVideo} autoPlay loop muted  />:null
+           show?<video width={350} src={resultVideo} autoPlay loop muted  />:null 
+          }
+          {
+            loading?<img src={"/loading.gif"}/>:null
           }
         </div>
       </div>
